@@ -36,7 +36,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
 	window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
 	
-	LoaderVC *loader = [[LoaderVC alloc] initWithStyle:UITableViewStyleGrouped];
+	LoaderVC *loader = [LoaderVC alloc];
 	navigationController = [[UINavigationController alloc] initWithRootViewController:loader];
 	
 	[window addSubview:[navigationController view]];
@@ -47,30 +47,30 @@
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
-	system("su mobile -c /usr/bin/sbreload");
-	notify_post("com.apple.mobile.application_installed");
-	sleep(2);
-	if(self.reboot) {
-		system("reboot");
-	} else {
-		system("killall SpringBoard");
-	}
-	exit(1);
+	// system("su mobile -c /usr/bin/sbreload");
+	// notify_post("com.apple.mobile.application_installed");
+	// sleep(2);
+	// if(self.reboot) {
+	// 	system("reboot");
+	// } else {
+	// 	system("killall SpringBoard");
+	// }
+	// exit(1);
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
-	if([[[UIDevice currentDevice] systemVersion] intValue] >= 4) {
-		// no backgrounding for you!
-		system("su mobile -c /usr/bin/sbreload");
-		notify_post("com.apple.mobile.application_installed");
-		sleep(2);
-		if(self.reboot) {
-			system("reboot");
-		} else {
-			system("killall SpringBoard");
-		}
-		exit(1);
-	}
+	// if([[[UIDevice currentDevice] systemVersion] intValue] >= 4) {
+	// 	// no backgrounding for you!
+	// 	system("su mobile -c /usr/bin/sbreload");
+	// 	notify_post("com.apple.mobile.application_installed");
+	// 	sleep(2);
+	// 	if(self.reboot) {
+	// 		system("reboot");
+	// 	} else {
+	// 		system("killall SpringBoard");
+	// 	}
+	// 	exit(1);
+	// }
 }
 
 - (void)dealloc {

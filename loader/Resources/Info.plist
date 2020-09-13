@@ -5,7 +5,7 @@
 		"icon-ipad.png",
 		"icon.png",
 	);
-	CFBundleIdentifier = "org.chronic-dev.loader";
+	CFBundleIdentifier = "com.zzanehip.jailbreak";
 	"CFBundleInfoDictionaryVersion" = "6.0";
 	CFBundlePackageType = APPL;
 	CFBundleSignature = "????";
@@ -21,5 +21,9 @@
 	UIDeviceFamily = (
 		1,
 		2,
+	);
+	UIAppFonts = (
+		"MazzardM-Bold.otf",
+		"MazzardM-Medium.otf",
 	);
 }

@@ -1,9 +1,9 @@
-Package: org.chronic-dev.loader
-Name: Loader
+Package: com.zzanehip.jailbreak
+Name: Deca5 Jailbreak
 Depends: 
 Version: 0.0.1
 Architecture: iphoneos-arm
 Description: An awesome application!
-Maintainer: Nicolas Haunold
-Author: Nicolas Haunold
+Maintainer: @zzanehip
+Author: @zzanehip
 Section: Utilities

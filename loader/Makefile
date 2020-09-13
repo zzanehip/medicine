@@ -1,37 +1,33 @@
 UNAME := $(shell uname -s)
-SYSROOT=/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS4.0.sdk
 ifeq ($(UNAME),Darwin)
 GO_EASY_ON_ME=1
-include theos/makefiles/common.mk
-
-APPLICATION_NAME = Loader
+ARCHS = armv7
+include /opt/theos/makefiles/common.mk
+SYSROOT=/opt/theos/sdks/iPhoneOS4.3.sdk
+Jailbreak_FRAMEWORKS = UIKit Foundation QuartzCore
+Jailbreak_CFLags = -I.
+APPLICATION_NAME = Jailbreak
 TOOL_NAME = Bootstrap
-Loader_FILES = main.m Callback.m MemLoaderOperation.m LoaderAppDelegate.mm LoaderVC.m
+Jailbreak_FILES = main.m LoaderAppDelegate.mm LoaderVC.m
 Bootstrap_FILES = Bootstrap.m
-Bootstrap_INSTALL_PATH = /Applications/Loader.app/
-
-SUBPROJECTS = sachet capable afc2add
+Bootstrap_INSTALL_PATH = /Applications/Jailbreak.app/
 
 include $(FW_MAKEDIR)/application.mk
 include $(FW_MAKEDIR)/tool.mk
 include $(FW_MAKEDIR)/aggregate.mk
 
-after-Loader-stage::
-	$(FAKEROOT) chmod 6755 $(FW_SHARED_BUNDLE_RESOURCE_PATH)/Loader
+after-Jailbreak-stage::
+	@$(FAKEROOT) chmod 6755 $(THEOS_SHARED_BUNDLE_RESOURCE_PATH)Jailbreak
 
 copy:: stage
-	rm -rf ../ramdisk/files/Loader.app
-	cp -R $(FW_STAGING_DIR)/Applications/Loader.app ../ramdisk/files/Loader.app
-	cp $(FW_STAGING_DIR)/sachet ../ramdisk/files/sachet
-	cp $(FW_STAGING_DIR)/capable ../ramdisk/files/capable
-	cp $(FW_STAGING_DIR)/afc2add ../ramdisk/files/afc2add
+	@cp -r $(THEOS_STAGING_DIR)/Applications/Jailbreak.app ../app
 	
 real-clean:
 	rm -rf _
 	rm -rf .obj
 else
 all clean:
-	@echo "Skipping loader on windows"
+	@echo "Skipping Jailbreak on windows"
 	
 stage copy real-clean:
 	@echo "Nothing to do"

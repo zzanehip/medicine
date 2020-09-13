@@ -11,7 +11,7 @@
 #include <errno.h>
 
 #define UNTAR_BUFFER_SIZE 512
-#define UNTAR_DEBUG 0
+#define UNTAR_DEBUG 1
 
 static long long int untar_numBytes = 0;
 

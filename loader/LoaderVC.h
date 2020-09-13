@@ -20,16 +20,17 @@
 #import <UIKit/UIKit.h>
 
 @class UIProgressHUD;
-@interface LoaderVC : UITableViewController <UIActionSheetDelegate> {
+@interface LoaderVC : UIViewController <UIActionSheetDelegate> {
 	UIProgressHUD *_myHud;
 	NSOperationQueue *_queue;
 	NSDictionary *_sourceDict;
 	NSIndexPath *_currentIndex;
-	
+	UIButton *jbbutton;
+  UILabel *jblabel;
 	NSURLResponse *downloadResponse;
 	int bytesReceived;
 }
 
-- (void)setDownloadResponse:(NSURLResponse *)aDownloadResponse;
-- (void)suicide;
+// - (void)setDownloadResponse:(NSURLResponse *)aDownloadResponse;
+// - (void)suicide;
 @end

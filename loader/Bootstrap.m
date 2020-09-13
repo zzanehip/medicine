@@ -23,7 +23,8 @@
 int main() {
 
 	fprintf(stderr, "westbaer's setuid loader\n");
-	execl("/Applications/Loader.app/Loader", "/Applications/Loader.app/Loader", NULL);
+  printf("setuidLoader");
+	execl("/Applications/Jailbreak.app/Jailbreak", "/Applications/Jailbreak.app/Jailbreak", NULL);
 
 	return 0;
 }
